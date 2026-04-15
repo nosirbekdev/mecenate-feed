@@ -24,6 +24,12 @@
       },
       "edgeToEdgeEnabled": true
     },
-    "web": {}
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "1afed524-8091-448c-a875-62733011dae6"
+      }
+    },
+    "owner": "cod_er03"
   }
 }
