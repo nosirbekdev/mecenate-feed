@@ -34,7 +34,7 @@ export const PaidPostOverlay = memo(function PaidPostOverlay({
   return (
     <View style={[styles.overlay, containerStyle]}>
       {BlurViewFallback ? (
-        <BlurViewFallback intensity={20} tint="dark" style={StyleSheet.absoluteFillObject} />
+        <BlurViewFallback intensity={28} tint="dark" style={StyleSheet.absoluteFillObject} />
       ) : null}
       <View style={styles.dimLayer} />
 
@@ -64,30 +64,31 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: 'center',
-    borderRadius: radius.md,
-    marginHorizontal: spacing.md,
-    padding: spacing.sm,
-    width: '72%',
+    borderRadius: radius.lg,
+    marginHorizontal: spacing.lg,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
+    width: '82%',
   },
   lockWrap: {
     alignItems: 'center',
     backgroundColor: colors.purple,
-    borderRadius: 10,
-    height: 20,
+    borderRadius: 14,
+    height: 28,
     justifyContent: 'center',
-    width: 20,
+    marginBottom: spacing.xs,
+    width: 28,
   },
   title: {
-    ...typography.caption,
+    ...typography.bodyMedium,
     color: colors.surface,
-    marginTop: spacing.xs,
     textAlign: 'center',
   },
   description: {
-    ...typography.caption,
+    ...typography.body,
     color: 'rgba(255,255,255,0.85)',
-    marginTop: 2,
-    marginBottom: spacing.xs,
+    marginTop: spacing.xs,
+    marginBottom: spacing.md,
     textAlign: 'center',
   },
 });

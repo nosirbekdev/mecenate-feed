@@ -26,7 +26,7 @@ export const FeedPostCard = memo(function FeedPostCard({ post, onPressSubscribe 
             {post.author.displayName}
           </Text>
           <Text style={styles.meta} numberOfLines={1}>
-            @{post.author.username} - {formatDateTime(post.createdAt)}
+            @{post.author.username} {'\u2022'} {formatDateTime(post.createdAt)}
           </Text>
         </View>
       </View>
@@ -47,7 +47,7 @@ export const FeedPostCard = memo(function FeedPostCard({ post, onPressSubscribe 
         </Text>
       ) : null}
 
-      <StatsRow likes={post.likesCount} comments={post.commentsCount} />
+      <StatsRow likes={post.likesCount} comments={post.commentsCount} isLiked={post.isLiked} />
     </Pressable>
   );
 });
@@ -55,48 +55,46 @@ export const FeedPostCard = memo(function FeedPostCard({ post, onPressSubscribe 
 const styles = StyleSheet.create({
   card: {
     ...shadows.card,
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing.sm,
+    backgroundColor: colors.surfaceElevated,
+    borderRadius: radius.lg,
+    padding: spacing.md,
   },
   header: {
     alignItems: 'center',
     flexDirection: 'row',
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
   },
   headerText: {
     flex: 1,
     marginLeft: spacing.sm,
   },
   authorName: {
-    ...typography.bodyMedium,
+    ...typography.h3,
     color: colors.text,
   },
   meta: {
-    ...typography.caption,
+    ...typography.body,
     color: colors.textMuted,
     marginTop: 2,
   },
   mediaWrap: {
-    borderRadius: radius.md,
-    marginBottom: spacing.md,
+    borderRadius: radius.lg,
+    marginBottom: spacing.sm,
     overflow: 'hidden',
     position: 'relative',
   },
   media: {
     backgroundColor: colors.surfaceMuted,
-    height: 170,
+    height: 210,
     width: '100%',
   },
   title: {
-    ...typography.bodyMedium,
+    ...typography.h3,
     color: colors.text,
-    marginBottom: spacing.xs,
+    marginBottom: spacing.sm,
   },
   preview: {
-    ...typography.body,
+    ...typography.bodyMedium,
     color: colors.textMuted,
     marginBottom: spacing.md,
   },

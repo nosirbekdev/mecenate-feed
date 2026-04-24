@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import React, { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { FEED_ERROR_MESSAGE, RETRY_LABEL } from '../constants/messages';
 import { colors, spacing, typography } from '../theme';
 import { PrimaryButton } from './PrimaryButton';
 
@@ -13,8 +14,8 @@ type ErrorStateProps = {
 };
 
 export const ErrorState = memo(function ErrorState({
-  message = '\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u043f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u0438',
-  retryLabel = '\u041f\u043e\u0432\u0442\u043e\u0440\u0438\u0442\u044c',
+  message = FEED_ERROR_MESSAGE,
+  retryLabel = RETRY_LABEL,
   onRetry,
 }: ErrorStateProps) {
   return (

@@ -61,13 +61,18 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     justifyContent: 'center',
     paddingHorizontal: spacing.lg,
+    shadowColor: colors.purple,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.22,
+    shadowRadius: 18,
+    elevation: 3,
   },
   buttonSm: {
-    minHeight: 32,
-    paddingVertical: spacing.xs,
+    minHeight: 44,
+    paddingVertical: spacing.sm,
   },
   buttonMd: {
-    minHeight: 40,
+    minHeight: 48,
     paddingVertical: spacing.sm,
   },
   fullWidth: {
@@ -82,6 +87,7 @@ const styles = StyleSheet.create({
   label: {
     ...typography.button,
     color: colors.surface,
+    letterSpacing: 0.2,
   },
 });
 

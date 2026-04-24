@@ -16,12 +16,11 @@ import { ErrorState } from '../components/ErrorState';
 import { FeedPostCard } from '../components/FeedPostCard';
 import { FeedTabs } from '../components/FeedTabs';
 import { SkeletonCard } from '../components/SkeletonCard';
+import { FEED_ERROR_MESSAGE, RETRY_LABEL } from '../constants/messages';
 import { useFeed } from '../hooks/useFeed';
 import { useRootStore } from '../store/rootStore';
 import { colors, spacing, typography } from '../theme';
 
-const ERROR_MESSAGE = '\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u043f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u0438';
-const RETRY_LABEL = '\u041f\u043e\u0432\u0442\u043e\u0440\u0438\u0442\u044c';
 const FEED_TITLE = '\u041b\u0435\u043d\u0442\u0430';
 
 const keyExtractor = (item: Post) => item.id;
@@ -66,7 +65,7 @@ export const FeedScreen = observer(function FeedScreen() {
     return (
       <SafeAreaView edges={['top']} style={styles.container}>
         <ErrorState
-          message={ERROR_MESSAGE}
+          message={FEED_ERROR_MESSAGE}
           retryLabel={RETRY_LABEL}
           onRetry={() => refetch()}
         />
@@ -114,13 +113,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bg,
   },
   listContent: {
-    paddingHorizontal: spacing.md,
-    gap: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    gap: spacing.md,
     paddingBottom: spacing.lg,
   },
   header: {
     gap: spacing.sm,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.md,
+    paddingHorizontal: spacing.xs,
   },
   title: {
     ...typography.h3,

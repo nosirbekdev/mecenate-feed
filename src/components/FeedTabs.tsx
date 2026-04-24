@@ -36,29 +36,25 @@ export const FeedTabs = memo(function FeedTabs({ value, onChange }: FeedTabsProp
 
 const styles = StyleSheet.create({
   row: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.pill,
     flexDirection: 'row',
-    gap: spacing.xs,
-    padding: 4,
+    gap: spacing.sm,
   },
   tab: {
     alignItems: 'center',
     borderRadius: radius.pill,
-    flex: 1,
     justifyContent: 'center',
-    minHeight: 30,
-    paddingHorizontal: spacing.xs,
+    minHeight: 32,
+    paddingHorizontal: spacing.sm,
   },
   tabActive: {
-    backgroundColor: colors.purple,
+    backgroundColor: colors.surfaceMuted,
   },
   label: {
-    ...typography.caption,
+    ...typography.body,
     color: colors.textMuted,
   },
   labelActive: {
-    color: colors.surface,
+    color: colors.text,
     fontWeight: '700',
   },
 });
