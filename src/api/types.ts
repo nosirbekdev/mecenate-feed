@@ -30,16 +30,42 @@ export interface PostsData {
   hasMore: boolean;
 }
 
+export interface Comment {
+  id: string;
+  postId: string;
+  author: Author;
+  text: string;
+  createdAt: string;
+}
+
+export interface CommentsData {
+  comments: Comment[];
+  nextCursor: string | null;
+  hasMore: boolean;
+}
+
 export interface ApiEnvelope<T> {
   ok: boolean;
   data: T;
 }
 
 export type PostsResponse = ApiEnvelope<PostsData>;
+export type CommentsResponse = ApiEnvelope<CommentsData>;
+export type CommentResponse = ApiEnvelope<Comment>;
 
 export interface GetPostsParams {
   limit?: number;
   cursor?: string | null;
   tier?: FeedTier;
-  simulate_error?: boolean;
+}
+
+export interface GetCommentsParams {
+  postId: string;
+  limit?: number;
+  cursor?: string | null;
+}
+
+export interface CreateCommentParams {
+  postId: string;
+  text: string;
 }

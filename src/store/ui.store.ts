@@ -4,7 +4,6 @@ import type { FeedTier } from '../api/types';
 
 export class UiStore {
   tierFilter: FeedTier = 'all';
-  simulateError = false;
 
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
@@ -12,13 +11,5 @@ export class UiStore {
 
   setTierFilter(nextTier: FeedTier) {
     this.tierFilter = nextTier;
-  }
-
-  setSimulateError(enabled: boolean) {
-    this.simulateError = enabled;
-  }
-
-  toggleSimulateError() {
-    this.simulateError = !this.simulateError;
   }
 }

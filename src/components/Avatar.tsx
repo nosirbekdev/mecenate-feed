@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { memo } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { colors, radius, typography } from "../theme";
+import { colors, typography } from "../theme";
 
 type AvatarProps = {
   size?: number;

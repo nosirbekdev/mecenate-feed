@@ -1,13 +1,15 @@
 import { Ionicons } from '@expo/vector-icons';
 import React, { memo } from 'react';
 import { StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import type { BlurViewProps } from 'expo-blur';
 
 import { colors, radius, spacing, typography } from '../theme';
 import { PrimaryButton } from './PrimaryButton';
 
-let BlurViewFallback: React.ComponentType<any> | null = null;
+let BlurViewFallback: React.ComponentType<BlurViewProps> | null = null;
 try {
-  BlurViewFallback = require('expo-blur').BlurView;
+  const expoBlur = require('expo-blur') as { BlurView: React.ComponentType<BlurViewProps> };
+  BlurViewFallback = expoBlur.BlurView;
 } catch {
   BlurViewFallback = null;
 }

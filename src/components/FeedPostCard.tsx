@@ -11,14 +11,15 @@ import { StatsRow } from './StatsRow';
 
 type FeedPostCardProps = {
   post: Post;
+  onPress?: (post: Post) => void;
   onPressSubscribe?: () => void;
 };
 
-export const FeedPostCard = memo(function FeedPostCard({ post, onPressSubscribe }: FeedPostCardProps) {
+export const FeedPostCard = memo(function FeedPostCard({ post, onPress, onPressSubscribe }: FeedPostCardProps) {
   const isPaid = post.tier === 'paid';
 
   return (
-    <Pressable style={styles.card}>
+    <Pressable accessibilityRole="button" onPress={() => onPress?.(post)} style={styles.card}>
       <View style={styles.header}>
         <Avatar name={post.author.displayName} uri={post.author.avatarUrl} />
         <View style={styles.headerText}>
@@ -47,7 +48,7 @@ export const FeedPostCard = memo(function FeedPostCard({ post, onPressSubscribe 
         </Text>
       ) : null}
 
-      <StatsRow likes={post.likesCount} comments={post.commentsCount} isLiked={post.isLiked} />
+      <StatsRow postId={post.id} likes={post.likesCount} comments={post.commentsCount} isLiked={post.isLiked} />
     </Pressable>
   );
 });
